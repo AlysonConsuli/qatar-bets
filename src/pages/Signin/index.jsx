@@ -34,9 +34,8 @@ export const Signin = () => {
         }
         value={userSignin.password}
         disabled={disabled}
-        minLength="3"
-        pattern="^[a-zA-Z0-9]{3,}$"
-        message="Apenas letras e números. Tamanho mínimo de 3 caracteres."
+        minLength="4"
+        message="Tamanho mínimo de 4 caracteres."
       />
       <Button type="submit" disabled={disabled} text="Login" />
     </S.Signin>
