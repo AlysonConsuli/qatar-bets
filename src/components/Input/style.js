@@ -44,7 +44,7 @@ export const Input = styled.div`
       margin-top: 12px;
     }
     span {
-      font-size: 11px;
+      font-size: 12px;
       width: 88vw;
     }
   }
