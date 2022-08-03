@@ -1,19 +1,44 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/index.jsx";
 import { Input } from "../../components/Input/index.jsx";
+import Swal from "sweetalert2";
 import * as S from "../../styles/style.js";
+import { UserContext } from "../../contexts/UserContext.jsx";
 
 export const Signin = () => {
+  const navigate = useNavigate();
+  const URL = `${process.env.REACT_APP_API_URL}/sign-in`;
+
   const [userSignin, setUserSignin] = useState({
     name: "",
     password: "",
   });
+  const { user, setUser } = useContext(UserContext);
   const [disabled, setDisabled] = useState(false);
 
-  function handleLogin(event) {
-    event.preventDefault();
+  async function handleLogin(e) {
+    e.preventDefault();
     setDisabled(true);
+    try {
+      const res = await axios.post(URL, userSignin);
+      const { name, token } = res.data;
+      setUser({ ...user, name, token });
+      const userSerialized = JSON.stringify({
+        name,
+        token,
+      });
+      localStorage.setItem("user", userSerialized);
+      navigate("/homepage");
+    } catch (error) {
+      setDisabled(false);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.response.data,
+      });
+    }
   }
 
   return (
