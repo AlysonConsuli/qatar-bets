@@ -1,42 +1,34 @@
-import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 import { Button } from "../../components/Button/index.jsx";
 import { Input } from "../../components/Input/index.jsx";
-import Swal from "sweetalert2";
 import * as S from "../../styles/style.js";
-import { UserContext } from "../../contexts/UserContext.jsx";
 
-export const Signin = () => {
+export default function SignUp() {
   const navigate = useNavigate();
-  const URL = `${process.env.REACT_APP_API_URL}/sign-in`;
+  const URL = `${process.env.REACT_APP_API_URL}/sign-up`;
 
-  const [userSignin, setUserSignin] = useState({
+  const [userSignup, setUserSignup] = useState({
     name: "",
     password: "",
+    passwordConfirmation: "",
   });
-  const { user, setUser } = useContext(UserContext);
   const [disabled, setDisabled] = useState(false);
 
-  async function handleLogin(e) {
+  async function createUser(e) {
     e.preventDefault();
     setDisabled(true);
     try {
-      const res = await axios.post(URL, userSignin);
-      const { name, token } = res.data;
-      setUser({ ...user, name, token });
-      const userSerialized = JSON.stringify({
-        name,
-        token,
-      });
-      localStorage.setItem("user", userSerialized);
-      navigate("/homepage");
-    } catch (error) {
+      await axios.post(URL, userSignup);
+      navigate("/");
+    } catch ({ response }) {
       setDisabled(false);
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: error.response.data,
+        text: response.data,
       });
     }
   }
@@ -47,17 +39,17 @@ export const Signin = () => {
         <h1>Qatar Bets</h1>
         <span>the best way to experience a world cup</span>
       </S.BoxAuthLogo>
-      <S.AuthForm onSubmit={handleLogin}>
+      <S.AuthForm onSubmit={createUser}>
         <Input
           type="text"
-          name="username"
-          id="username"
+          name="name"
+          id="name"
           required
           placeholder="name"
           onChange={(e) =>
-            setUserSignin({ ...userSignin, name: e.target.value })
+            setUserSignup({ ...userSignup, name: e.target.value })
           }
-          value={userSignin.name}
+          value={userSignup.name}
           disabled={disabled}
           message="Invalid name"
         />
@@ -68,16 +60,32 @@ export const Signin = () => {
           required
           placeholder="password"
           onChange={(e) =>
-            setUserSignin({ ...userSignin, password: e.target.value })
+            setUserSignup({ ...userSignup, password: e.target.value })
           }
-          value={userSignin.password}
+          value={userSignup.password}
           disabled={disabled}
           minLength="4"
           message="Minimum of 4 characters"
         />
-        <Button type="submit" disabled={disabled} text="Login" />
-        <Link to="/sign-up">
-          <span>First time? Create an account!</span>
+        <Input
+          type="password"
+          name="passwordConfirmation"
+          id="passwordConfirmation"
+          required
+          placeholder="password confirmation"
+          onChange={(e) =>
+            setUserSignup({
+              ...userSignup,
+              passwordConfirmation: e.target.value,
+            })
+          }
+          value={userSignup.passwordConfirmation}
+          disabled={disabled}
+          message="Password confirmation must ref password"
+        />
+        <Button type="submit" disabled={disabled} text="Sign Up" />
+        <Link to="/">
+          <span>Switch back to log in</span>
         </Link>
       </S.AuthForm>
       <S.BoxTriangle>
@@ -97,4 +105,4 @@ export const Signin = () => {
       <S.AuthFooter></S.AuthFooter>
     </S.AuthContainer>
   );
-};
+}

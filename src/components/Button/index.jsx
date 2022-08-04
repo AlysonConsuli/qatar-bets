@@ -1,7 +1,7 @@
 import * as S from "../../styles/style.js";
 import { ThreeDots } from "react-loader-spinner";
 
-export default function Button({ type, disabled, text }) {
+export const Button = ({ type, disabled, text }) => {
   return (
     <S.Button type={type} disabled={disabled}>
       {disabled ? (
@@ -11,4 +11,4 @@ export default function Button({ type, disabled, text }) {
       )}
     </S.Button>
   );
-}
+};
