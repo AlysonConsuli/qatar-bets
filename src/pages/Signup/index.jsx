@@ -88,21 +88,6 @@ export const SignUp = () => {
           <span>Switch back to log in</span>
         </Link>
       </S.AuthForm>
-      <S.BoxTriangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-      </S.BoxTriangle>
-      <S.AuthFooter></S.AuthFooter>
     </S.AuthContainer>
   );
 };

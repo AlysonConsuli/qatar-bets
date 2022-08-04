@@ -4,11 +4,12 @@ import { FiLogOut } from "react-icons/fi";
 
 export const PageContainer = styled.main`
   background-color: ${({ theme }) => theme.colors.mainBackground};
-  height: 100vh;
 `;
 
 export const Header = styled.header`
   position: sticky;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

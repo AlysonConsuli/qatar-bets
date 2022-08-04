@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button/index.jsx";
 import { Input } from "../../components/Input/index.jsx";
@@ -42,12 +42,6 @@ export const Signin = () => {
     }
   }
 
-  useEffect(() => {
-    if (user) {
-      navigate("/homepage");
-    }
-  }, []);
-
   return (
     <S.AuthContainer>
       <S.BoxAuthLogo>
@@ -87,21 +81,6 @@ export const Signin = () => {
           <span>First time? Create an account!</span>
         </Link>
       </S.AuthForm>
-      <S.BoxTriangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-        <S.Triangle></S.Triangle>
-      </S.BoxTriangle>
-      <S.AuthFooter></S.AuthFooter>
     </S.AuthContainer>
   );
 };
