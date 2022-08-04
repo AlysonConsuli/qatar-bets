@@ -6,7 +6,7 @@ import { Button } from "../../components/Button/index.jsx";
 import { Input } from "../../components/Input/index.jsx";
 import * as S from "../../styles/style.js";
 
-export default function SignUp() {
+export const SignUp = () => {
   const navigate = useNavigate();
   const URL = `${process.env.REACT_APP_API_URL}/sign-up`;
 
@@ -105,4 +105,4 @@ export default function SignUp() {
       <S.AuthFooter></S.AuthFooter>
     </S.AuthContainer>
   );
-}
+};

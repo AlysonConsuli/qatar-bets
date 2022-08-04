@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button/index.jsx";
 import { Input } from "../../components/Input/index.jsx";
@@ -40,6 +41,12 @@ export const Signin = () => {
       });
     }
   }
+
+  useEffect(() => {
+    if (user) {
+      navigate("/homepage");
+    }
+  }, []);
 
   return (
     <S.AuthContainer>
