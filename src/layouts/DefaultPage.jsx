@@ -3,12 +3,12 @@ import { Outlet } from "react-router-dom";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { PagesHeader } from "../components/PagesHeader";
 
 export const DefaultPage = () => {
   return (
     <>
-      <Header />
-      <Footer />
+      <PagesHeader />
       <Outlet />
     </>
   );
@@ -17,6 +17,16 @@ export const DefaultPage = () => {
 export const AuthDefaultPage = () => {
   return (
     <>
+      <Footer />
+      <Outlet />
+    </>
+  );
+};
+
+export const DefaultHomePage = () => {
+  return (
+    <>
+      <Header />
       <Footer />
       <Outlet />
     </>

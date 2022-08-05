@@ -1,6 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
-import { AuthDefaultPage, DefaultPage } from "../layouts/DefaultPage";
+import {
+  AuthDefaultPage,
+  DefaultHomePage,
+  DefaultPage,
+} from "../layouts/DefaultPage";
 import { HomeLayout } from "../layouts/HomeLayout";
 import ProtectedLayout from "../layouts/ProtectedLayout";
 import { AddBets } from "../pages/AddBets";
@@ -18,8 +22,10 @@ export const Router = () => {
         </Route>
       </Route>
       <Route element={<ProtectedLayout />}>
-        <Route element={<DefaultPage />}>
+        <Route element={<DefaultHomePage />}>
           <Route path="/homepage" element={<Homepage />} />
+        </Route>
+        <Route element={<DefaultPage />}>
           <Route path="/add-bets" element={<AddBets />} />
         </Route>
       </Route>

@@ -53,7 +53,7 @@ export const Triangle = styled.div`
 
 export const BoxTriangle = styled.div`
   display: flex;
-  position: absolute;
+  position: fixed;
   bottom: calc(100vw / 6 - 1px);
   div:nth-child(7),
   div:nth-child(8),
@@ -80,7 +80,7 @@ export const AuthFooter = styled.div`
   background-color: ${({ theme }) => theme.colors.secondary};
   width: 100%;
   height: calc(100vw / 6);
-  position: absolute;
+  position: fixed;
   bottom: 0;
   @media (min-width: ${({ theme }) => theme.breakPoints.laptop}) {
     display: none;
