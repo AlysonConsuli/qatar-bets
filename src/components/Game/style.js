@@ -43,15 +43,15 @@ export const CheckBox = styled.button`
   width: 25px;
   height: 25px;
   border-radius: 4px;
-  background-color: ${(props) => (props.hasBet ? "#00a000" : "grey")};
+  background-color: ${(props) => (props.$hasBet ? "#00a000" : "grey")};
   position: absolute;
   right: -31px;
   padding: 0;
   border: none;
   cursor: pointer;
-  top: ${(props) => props.hasBet && "4px"};
+  top: ${(props) => props.$hasBet && "4px"};
   box-shadow: ${(props) =>
-    props.hasBet ? "0 0 0" : "4px 4px 4px rgba(0, 0, 0, 0.25)"};
+    props.$hasBet ? "0 0 0" : "4px 4px 4px rgba(0, 0, 0, 0.25)"};
 `;
 
 export const CheckIcon = styled(FiCheck)`
@@ -60,7 +60,7 @@ export const CheckIcon = styled(FiCheck)`
 `;
 
 export const EditIcon = styled(FiEdit)`
-  display: ${(props) => !props.hasBet && "none"};
+  display: ${(props) => !props.$hasBet && "none"};
   font-size: 21px;
   cursor: pointer;
   position: absolute;

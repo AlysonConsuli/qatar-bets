@@ -79,10 +79,10 @@ export const Game = ({ obj }) => {
         )}
       </S.BoxInput>
       <S.TeamName>{game?.team2.name || bet?.game.team2.name}</S.TeamName>
-      <S.CheckBox type="submit" disabled={disabled} hasBet={hasBet}>
+      <S.CheckBox type="submit" disabled={disabled} $hasBet={hasBet}>
         <S.CheckIcon></S.CheckIcon>
       </S.CheckBox>
-      <S.EditIcon onClick={editBet} hasBet={hasBet}></S.EditIcon>
+      <S.EditIcon onClick={editBet} $hasBet={hasBet}></S.EditIcon>
     </S.Game>
   );
 };
