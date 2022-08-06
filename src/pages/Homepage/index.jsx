@@ -11,13 +11,15 @@ export const Homepage = () => {
           </S.Article>
         </Link>
         <S.Article>
-          <span>Show bets</span>
+          <span>Games Result</span>
         </S.Article>
+        <Link to="/ranking">
+          <S.Article>
+            <span>Ranking</span>
+          </S.Article>
+        </Link>
         <S.Article>
-          <span>Ranking</span>
-        </S.Article>
-        <S.Article>
-          <span>Games</span>
+          <span>Extras</span>
         </S.Article>
       </S.ArticleContainer>
     </S.PageContainer>

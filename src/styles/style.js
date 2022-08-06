@@ -9,3 +9,5 @@ export * from "../pages/AddBets/style.js";
 export * from "../components/Game/style.js";
 export * from "../components/PagesHeader/style.js";
 export * from "../components/GameInput/style.js";
+export * from "../components/User/style.js";
+export * from "../pages/Ranking/style.js";

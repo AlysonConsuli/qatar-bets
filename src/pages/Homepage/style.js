@@ -50,6 +50,7 @@ export const Article = styled.article`
   background-color: ${({ theme }) => theme.colors.secondary};
   border-radius: 50%;
   cursor: pointer;
+  text-align: center;
   span {
     font-size: 20px;
     color: ${({ theme }) => theme.colors.secondaryBackground};
