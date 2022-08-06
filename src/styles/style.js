@@ -11,3 +11,4 @@ export * from "../components/PagesHeader/style.js";
 export * from "../components/GameInput/style.js";
 export * from "../components/User/style.js";
 export * from "../pages/Ranking/style.js";
+export * from "../components/GameResult/style.js";

@@ -10,9 +10,11 @@ export const Homepage = () => {
             <span>Add bets</span>
           </S.Article>
         </Link>
-        <S.Article>
-          <span>Games Result</span>
-        </S.Article>
+        <Link to="/games">
+          <S.Article>
+            <span>Games</span>
+          </S.Article>
+        </Link>
         <Link to="/ranking">
           <S.Article>
             <span>Ranking</span>

@@ -16,9 +16,6 @@ export const Game = styled.form`
   padding: 0 5px;
   margin-right: 18px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
-  @media (max-width: 374px) {
-    margin-right: 30px;
-  }
 `;
 
 export const BoxInput = styled.div`
@@ -52,6 +49,9 @@ export const CheckBox = styled.button`
   top: ${(props) => props.$hasBet && "4px"};
   box-shadow: ${(props) =>
     props.$hasBet ? "0 0 0" : "4px 4px 4px rgba(0, 0, 0, 0.25)"};
+  @media (max-width: 374px) {
+    right: -28px;
+  }
 `;
 
 export const CheckIcon = styled(FiCheck)`
@@ -67,6 +67,9 @@ export const EditIcon = styled(FiEdit)`
   right: -29px;
   bottom: 3px;
   cursor: pointer;
+  @media (max-width: 374px) {
+    right: -26px;
+  }
 `;
 
 export const TeamName = styled.span`

@@ -8,6 +8,7 @@ import {
 import { HomeLayout } from "../layouts/HomeLayout";
 import ProtectedLayout from "../layouts/ProtectedLayout";
 import { AddBets } from "../pages/AddBets";
+import { Games } from "../pages/Games";
 import { Homepage } from "../pages/Homepage";
 import { Ranking } from "../pages/Ranking";
 import { Signin } from "../pages/Signin";
@@ -29,6 +30,7 @@ export const Router = () => {
         <Route element={<DefaultPage />}>
           <Route path="/add-bets" element={<AddBets />} />
           <Route path="/ranking" element={<Ranking />} />
+          <Route path="/games" element={<Games />} />
         </Route>
       </Route>
     </Routes>
