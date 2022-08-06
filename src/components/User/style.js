@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const User = styled.div`
+  position: relative;
   background-color: ${({ theme }) => theme.colors.secondary};
   min-height: 40px;
   display: flex;
