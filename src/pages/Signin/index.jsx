@@ -32,12 +32,12 @@ export const Signin = () => {
       });
       localStorage.setItem("user", userSerialized);
       navigate("/homepage");
-    } catch (error) {
+    } catch ({ response }) {
       setDisabled(false);
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: error.response.data,
+        text: response.data,
       });
     }
   }

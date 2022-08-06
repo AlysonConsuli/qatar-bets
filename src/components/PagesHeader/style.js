@@ -6,6 +6,7 @@ import { FaHome } from "react-icons/fa";
 export const PagesHeader = styled.header`
   padding: 0 20px;
   position: sticky;
+  z-index: 11;
   top: 0;
   width: 100%;
   display: flex;
