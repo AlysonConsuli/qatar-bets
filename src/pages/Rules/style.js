@@ -15,8 +15,12 @@ export const Rules = styled.div`
   }
   ul {
     list-style-type: disc;
-  }
-  li {
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    @media (min-width: ${({ theme }) => theme.breakPoints.laptop}) {
+      align-items: center;
+    }
   }
 `;

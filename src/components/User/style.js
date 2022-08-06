@@ -26,7 +26,7 @@ export const User = styled.div`
     left: 45%;
   }
   &:first-child {
-    span:last-child {
+    span:nth-child(3) {
       background-color: #ffd700;
       border-radius: 50%;
       height: 22px;
@@ -36,7 +36,7 @@ export const User = styled.div`
     }
   }
   &:nth-child(2) {
-    span:last-child {
+    span:nth-child(3) {
       background-color: #9a9a9a;
       border-radius: 50%;
       height: 22px;
@@ -46,7 +46,7 @@ export const User = styled.div`
     }
   }
   &:nth-child(3) {
-    span:last-child {
+    span:nth-child(3) {
       background-color: #cd7f32;
       border-radius: 50%;
       height: 22px;

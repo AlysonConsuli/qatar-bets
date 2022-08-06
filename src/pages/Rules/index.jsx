@@ -14,11 +14,14 @@ export const Rules = () => {
           </li>
           <li>If you get everything wrong, you don't score.</li>
           <li>
+            in case of a tie, the player who created the account first will have
+            the advantage!
+          </li>
+          <li>
             The first place will win 80% of the prize. The second place will win
             15% of the prize. The third place will win 5% of the prize.
           </li>
           <li>To participate, you have to pay 20 reais to Admin.</li>
-          <li>The total value of the prize is at xxx reais at the moment</li>
         </ul>
         <h2>Good luck and enjoy!!!</h2>
       </S.Rules>
