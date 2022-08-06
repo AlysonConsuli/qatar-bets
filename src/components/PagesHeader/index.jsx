@@ -25,7 +25,7 @@ export const PagesHeader = () => {
         message={"logout"}
       />
       <S.PagesHeader>
-        <S.HomeIcon onClick={() => navigate("homepage")}></S.HomeIcon>
+        <S.BackIcon onClick={() => navigate(-1)}></S.BackIcon>
         <h1>Qatar Bets</h1>
         <S.LogoutIcon onClick={() => setLogoutModal(true)}></S.LogoutIcon>
       </S.PagesHeader>
