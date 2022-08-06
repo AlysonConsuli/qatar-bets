@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const User = styled.div`
   background-color: ${({ theme }) => theme.colors.secondary};
-  height: 60px;
+  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,6 +23,36 @@ export const User = styled.div`
   span:nth-child(2) {
     position: absolute;
     left: 45%;
+  }
+  &:first-child {
+    span:last-child {
+      background-color: #ffd700;
+      border-radius: 50%;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &:nth-child(2) {
+    span:last-child {
+      background-color: #9a9a9a;
+      border-radius: 50%;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &:nth-child(3) {
+    span:last-child {
+      background-color: #cd7f32;
+      border-radius: 50%;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
   @media (min-width: ${({ theme }) => theme.breakPoints.tablet}) {
     span:nth-child(2) {

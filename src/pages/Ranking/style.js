@@ -5,7 +5,7 @@ export const Users = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
   margin: 10px 0 20px 0;
 `;
 
