@@ -20,9 +20,11 @@ export const Homepage = () => {
             <span>Ranking</span>
           </S.Article>
         </Link>
-        <S.Article>
-          <span>Extras</span>
-        </S.Article>
+        <Link to="/rules">
+          <S.Article>
+            <span>Rules</span>
+          </S.Article>
+        </Link>
       </S.ArticleContainer>
     </S.PageContainer>
   );

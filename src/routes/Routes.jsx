@@ -11,6 +11,7 @@ import { AddBets } from "../pages/AddBets";
 import { Games } from "../pages/Games";
 import { Homepage } from "../pages/Homepage";
 import { Ranking } from "../pages/Ranking";
+import { Rules } from "../pages/Rules";
 import { Signin } from "../pages/Signin";
 import { SignUp } from "../pages/Signup";
 
@@ -31,6 +32,7 @@ export const Router = () => {
           <Route path="/add-bets" element={<AddBets />} />
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/games" element={<Games />} />
+          <Route path="/rules" element={<Rules />} />
         </Route>
       </Route>
     </Routes>
