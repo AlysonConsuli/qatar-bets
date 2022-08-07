@@ -22,12 +22,6 @@ export const UserPayment = styled.div`
   }
 `;
 
-export const IsPaid = styled.div`
-  width: 30px;
-  height: 30px;
-  background-color: blue;
-`;
-
 export const TrueIcon = styled(FiCheckCircle)`
   font-size: 21px;
   color: green;
