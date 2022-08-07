@@ -13,14 +13,14 @@ export const GameBets = styled.div`
     color: ${({ theme }) => theme.colors.secondary};
     margin-bottom: 5px;
     display: flex;
-    justify-content: space-between;
+    gap: 5px;
     align-items: center;
     width: 90%;
     span:first-child {
       width: 45%;
       text-align: right;
     }
-    span:nth-child(3) {
+    span:last-child {
       width: 45%;
       text-align: left;
     }
