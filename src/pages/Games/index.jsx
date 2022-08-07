@@ -30,11 +30,11 @@ export const Games = () => {
 
   return (
     <S.PageContainer>
-      <S.Games>
+      <S.GamesResult>
         {games?.map((game) => (
           <GameResult key={game.id} game={game} />
         ))}
-      </S.Games>
+      </S.GamesResult>
     </S.PageContainer>
   );
 };

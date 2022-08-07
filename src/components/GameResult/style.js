@@ -4,7 +4,7 @@ import { FiEye } from "react-icons/fi";
 
 export const GameResult = styled.div`
   background-color: ${({ theme }) => theme.colors.secondary};
-  height: 60px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
