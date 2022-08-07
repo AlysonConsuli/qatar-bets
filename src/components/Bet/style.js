@@ -16,6 +16,11 @@ export const Bet = styled.div`
 
 export const UserName = styled.span`
   font-size: 18px;
-  width: 37%;
+  width: 39%;
   font-weight: 700;
+  word-break: break-word;
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word; */
 `;

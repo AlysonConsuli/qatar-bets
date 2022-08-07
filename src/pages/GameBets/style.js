@@ -13,6 +13,7 @@ export const GameBets = styled.div`
     color: ${({ theme }) => theme.colors.secondary};
     margin-bottom: 5px;
     text-align: center;
+    word-break: break-word;
   }
 
   h3 {

@@ -18,10 +18,11 @@ export const User = styled.div`
     text-align: center;
   }
   span:first-child {
-    width: 125px;
+    width: 39%;
     text-align: left;
     font-size: 17px;
     font-weight: 700;
+    word-break: break-word;
   }
   span:nth-child(2) {
     position: absolute;
