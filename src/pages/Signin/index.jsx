@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "../../components/Button/index.jsx";
 import { Input } from "../../components/Input/index.jsx";
 import Swal from "sweetalert2";
@@ -9,7 +9,6 @@ import * as S from "../../styles/style.js";
 import { UserContext } from "../../contexts/UserContext.jsx";
 
 export const Signin = () => {
-  const navigate = useNavigate();
   const URL = `${process.env.REACT_APP_API_URL}/sign-in`;
 
   const [userSignin, setUserSignin] = useState({
@@ -31,7 +30,6 @@ export const Signin = () => {
         token,
       });
       localStorage.setItem("user", userSerialized);
-      navigate("/homepage");
     } catch ({ response }) {
       setDisabled(false);
       Swal.fire({

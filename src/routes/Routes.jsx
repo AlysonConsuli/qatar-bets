@@ -1,13 +1,15 @@
 import { Route, Routes } from "react-router-dom";
+import AdminLayout from "../layouts/AdminLayout";
 
 import {
   AuthDefaultPage,
   DefaultHomePage,
   DefaultPage,
 } from "../layouts/DefaultPage";
-import { HomeLayout } from "../layouts/HomeLayout";
+import { AuthLayout } from "../layouts/AuthLayout";
 import ProtectedLayout from "../layouts/ProtectedLayout";
 import { AddBets } from "../pages/AddBets";
+import { AdminHomepage } from "../pages/AdminHomepage";
 import { GameBets } from "../pages/GameBets";
 import { Games } from "../pages/Games";
 import { Homepage } from "../pages/Homepage";
@@ -20,7 +22,7 @@ import { UserBets } from "../pages/UserBets";
 export const Router = () => {
   return (
     <Routes>
-      <Route element={<HomeLayout />}>
+      <Route element={<AuthLayout />}>
         <Route element={<AuthDefaultPage />}>
           <Route path="/" element={<Signin />} />
           <Route path="/sign-up" element={<SignUp />} />
@@ -37,6 +39,15 @@ export const Router = () => {
           <Route path="/rules" element={<Rules />} />
           <Route path="/bets/game/:gameId" element={<GameBets />} />
           <Route path="/bets/user/:userId" element={<UserBets />} />
+        </Route>
+      </Route>
+      <Route element={<AdminLayout />}>
+        <Route element={<DefaultHomePage />}>
+          <Route path="/admin/homepage" element={<AdminHomepage />} />
+        </Route>
+        <Route element={<DefaultPage />}>
+          <Route path="/admin/add-result" element={<AdminHomepage />} />
+          <Route path="/admin/users-payment" element={<AdminHomepage />} />
         </Route>
       </Route>
     </Routes>
