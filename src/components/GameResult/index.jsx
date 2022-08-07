@@ -9,7 +9,7 @@ export const GameResult = ({ game }) => {
   const score2 = hasResult ? game.score2 : "-";
 
   function seeBets() {
-    navigate(`/bets/${game.id}`);
+    navigate(`/bets/game/${game.id}`);
   }
 
   return (

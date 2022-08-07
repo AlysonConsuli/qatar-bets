@@ -20,7 +20,7 @@ export const GameBets = () => {
   };
   useEffect(() => {
     axios
-      .get(`${URL}/bets/${gameId}`, config)
+      .get(`${URL}/bets/game/${gameId}`, config)
       .then(({ data }) => {
         console.log(data);
         setBets(data.bets);
