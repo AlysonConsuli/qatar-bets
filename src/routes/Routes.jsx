@@ -19,6 +19,7 @@ import { Signin } from "../pages/Signin";
 import { SignUp } from "../pages/Signup";
 import { UserBets } from "../pages/UserBets";
 import { Results } from "../pages/Results";
+import { UsersPayment } from "../pages/UsersPayment";
 
 export const Router = () => {
   return (
@@ -48,7 +49,7 @@ export const Router = () => {
         </Route>
         <Route element={<DefaultPage />}>
           <Route path="/admin/add-result" element={<Results />} />
-          <Route path="/admin/users-payment" element={<AdminHomepage />} />
+          <Route path="/admin/users-payment" element={<UsersPayment />} />
         </Route>
       </Route>
     </Routes>

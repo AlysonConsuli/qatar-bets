@@ -19,7 +19,6 @@ export const GameResult = styled.div`
 
 export const EyeIcon = styled(FiEye)`
   font-size: 21px;
-  cursor: pointer;
   position: absolute;
   right: -29px;
   cursor: pointer;

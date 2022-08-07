@@ -16,3 +16,4 @@ export * from "../pages/Rules/style.js";
 export * from "../components/Bet/style.js";
 export * from "../pages/GameBets/style.js";
 export * from "../pages/Games/style.js";
+export * from "../components/UserPayment/style.js";
