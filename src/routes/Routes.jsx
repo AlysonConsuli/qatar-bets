@@ -8,6 +8,7 @@ import {
 import { HomeLayout } from "../layouts/HomeLayout";
 import ProtectedLayout from "../layouts/ProtectedLayout";
 import { AddBets } from "../pages/AddBets";
+import { GameBets } from "../pages/GameBets";
 import { Games } from "../pages/Games";
 import { Homepage } from "../pages/Homepage";
 import { Ranking } from "../pages/Ranking";
@@ -33,6 +34,7 @@ export const Router = () => {
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/games" element={<Games />} />
           <Route path="/rules" element={<Rules />} />
+          <Route path="/bets/:gameId" element={<GameBets />} />
         </Route>
       </Route>
     </Routes>

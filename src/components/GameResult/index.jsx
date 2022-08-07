@@ -2,7 +2,6 @@ import * as S from "../../styles/style.js";
 import { useNavigate } from "react-router-dom";
 
 export const GameResult = ({ game }) => {
-  //const URL = `${process.env.REACT_APP_API_URL}/bets/:gameId`;
   const navigate = useNavigate();
 
   const hasResult = game.score1 !== null && game.score2 !== null ? true : false;
@@ -10,7 +9,7 @@ export const GameResult = ({ game }) => {
   const score2 = hasResult ? game.score2 : "-";
 
   function seeBets() {
-    navigate("/homepage");
+    navigate(`/bets/${game.id}`);
   }
 
   return (

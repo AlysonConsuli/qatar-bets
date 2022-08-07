@@ -31,9 +31,11 @@ export const BoxAuthLogo = styled.div`
   h1 {
     font-size: 44px;
     margin-bottom: 7px;
+    text-align: center;
   }
   span {
     font-size: 17px;
+    text-align: center;
   }
 `;
 

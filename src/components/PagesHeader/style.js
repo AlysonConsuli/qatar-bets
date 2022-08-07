@@ -18,6 +18,7 @@ export const PagesHeader = styled.header`
   h1 {
     font-size: 28px;
     color: ${({ theme }) => theme.colors.text};
+    text-align: center;
   }
   svg {
     color: ${({ theme }) => theme.colors.text};
