@@ -4,6 +4,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { Game } from "../../components/Game/index.jsx";
+import { ThreeDots } from "react-loader-spinner";
 
 export const AddBets = () => {
   const URL = process.env.REACT_APP_API_URL;
@@ -34,7 +35,7 @@ export const AddBets = () => {
       .get(`${URL}/bets?groupBy=user`, config)
       .then(({ data }) => {
         console.log(data);
-        setUserBets(data.bets);
+        setUserBets(data);
       })
       .catch(({ response }) => {
         console.log(response);
@@ -43,14 +44,22 @@ export const AddBets = () => {
 
   function verifyHasBet(game) {
     let userBet = false;
-    for (let i = 0; i < userBets.length; i++) {
-      const bet = userBets[i];
+    for (let i = 0; i < userBets.bets.length; i++) {
+      const bet = userBets.bets[i];
       if (bet.game.id === game.id) {
         userBet = bet;
         break;
       }
     }
     return userBet;
+  }
+
+  if (!games || userBets.bets === undefined) {
+    return (
+      <S.Loading>
+        <ThreeDots color="#fff" height="100" width="100" ariaLabel="loading" />
+      </S.Loading>
+    );
   }
 
   return (
@@ -63,7 +72,7 @@ export const AddBets = () => {
           }
           return "";
         })}
-        {userBets?.map((bet) => {
+        {userBets.bets?.map((bet) => {
           return <Game key={bet.game.id} obj={bet} />;
         })}
       </S.Games>

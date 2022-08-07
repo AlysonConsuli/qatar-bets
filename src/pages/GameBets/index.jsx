@@ -29,6 +29,7 @@ export const GameBets = () => {
         console.log(response);
       });
   }, []);
+
   return (
     <S.PageContainer>
       <S.GameBets>
