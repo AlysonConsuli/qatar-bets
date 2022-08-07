@@ -15,6 +15,7 @@ import { Ranking } from "../pages/Ranking";
 import { Rules } from "../pages/Rules";
 import { Signin } from "../pages/Signin";
 import { SignUp } from "../pages/Signup";
+import { UserBets } from "../pages/UserBets";
 
 export const Router = () => {
   return (
@@ -35,6 +36,7 @@ export const Router = () => {
           <Route path="/games" element={<Games />} />
           <Route path="/rules" element={<Rules />} />
           <Route path="/bets/game/:gameId" element={<GameBets />} />
+          <Route path="/bets/user/:userId" element={<UserBets />} />
         </Route>
       </Route>
     </Routes>

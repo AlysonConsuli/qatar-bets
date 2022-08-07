@@ -20,6 +20,8 @@ export const User = styled.div`
   span:first-child {
     width: 125px;
     text-align: left;
+    font-size: 17px;
+    font-weight: 700;
   }
   span:nth-child(2) {
     position: absolute;

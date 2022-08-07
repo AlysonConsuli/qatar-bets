@@ -5,7 +5,7 @@ export const User = ({ user, position }) => {
   const navigate = useNavigate();
 
   function seeBets() {
-    navigate("/homepage");
+    navigate(`/bets/user/${user.id}`);
   }
 
   return (

@@ -8,6 +8,13 @@ export const GameBets = styled.div`
   gap: 7px;
   margin: 17px 0;
 
+  h2 {
+    font-size: 24px;
+    color: ${({ theme }) => theme.colors.secondary};
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
   h3 {
     font-size: 24px;
     color: ${({ theme }) => theme.colors.secondary};
