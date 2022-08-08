@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext.jsx";
 import axios from "axios";
+import { alertError } from "../utils/alertError.js";
 
 export default function ProtectedLayout() {
   const navigate = useNavigate();
@@ -28,7 +29,9 @@ export default function ProtectedLayout() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/auto-login`, {}, config)
       .then(() => {})
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
+        alertError(error);
         logout();
       });
   }, []);

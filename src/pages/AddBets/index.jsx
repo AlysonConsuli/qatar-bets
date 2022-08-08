@@ -4,14 +4,15 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { Game } from "../../components/Game/index.jsx";
-import { ThreeDots } from "react-loader-spinner";
+import { Loading } from "../../components/Loading/index.jsx";
+import { alertError } from "../../utils/alertError.js";
 
 export const AddBets = () => {
   const URL = process.env.REACT_APP_API_URL;
   const { user } = useContext(UserContext);
 
   const [games, setGames] = useState([]);
-  const [userBets, setUserBets] = useState([]);
+  const [userBets, setUserBets] = useState(null);
 
   const config = {
     headers: {
@@ -21,31 +22,21 @@ export const AddBets = () => {
   useEffect(() => {
     axios
       .get(`${URL}/games`, config)
-      .then(({ data }) => {
-        console.log(data);
-        setGames(data.games);
-      })
-      .catch(({ response }) => {
-        console.log(response);
-      });
+      .then(({ data }) => setGames(data.games))
+      .catch((error) => alertError(error));
   }, []);
 
   useEffect(() => {
     axios
       .get(`${URL}/bets?groupBy=user`, config)
-      .then(({ data }) => {
-        console.log(data);
-        setUserBets(data);
-      })
-      .catch(({ response }) => {
-        console.log(response);
-      });
+      .then(({ data }) => setUserBets(data.bets))
+      .catch((error) => alertError(error));
   }, []);
 
   function verifyHasBet(game) {
     let userBet = false;
-    for (let i = 0; i < userBets.bets.length; i++) {
-      const bet = userBets.bets[i];
+    for (let i = 0; i < userBets?.length; i++) {
+      const bet = userBets[i];
       if (bet.game.id === game.id) {
         userBet = bet;
         break;
@@ -54,12 +45,8 @@ export const AddBets = () => {
     return userBet;
   }
 
-  if (!games || userBets.bets === undefined) {
-    return (
-      <S.Loading>
-        <ThreeDots color="#fff" height="100" width="100" ariaLabel="loading" />
-      </S.Loading>
-    );
+  if (!games || userBets === null) {
+    return <Loading />;
   }
 
   return (
@@ -72,7 +59,7 @@ export const AddBets = () => {
           }
           return "";
         })}
-        {userBets.bets?.map((bet) => {
+        {userBets?.map((bet) => {
           return <Game key={bet.game.id} obj={bet} />;
         })}
       </S.Games>

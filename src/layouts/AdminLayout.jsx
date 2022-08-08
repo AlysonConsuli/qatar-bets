@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext.jsx";
 import axios from "axios";
-import Swal from "sweetalert2";
+import { alertError } from "../utils/alertError.js";
 
 export default function AdminLayout() {
   const navigate = useNavigate();
@@ -29,12 +29,9 @@ export default function AdminLayout() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/admin-login`, {}, config)
       .then(() => {})
-      .catch(({ response }) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: response.data,
-        });
+      .catch((error) => {
+        console.log(error);
+        alertError(error);
         logout();
       });
   }, []);
