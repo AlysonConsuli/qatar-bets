@@ -3,7 +3,8 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext.jsx";
 import * as S from "../../styles/style.js";
 import { GameInput } from "../GameInput/index.jsx";
-import Swal from "sweetalert2";
+import { config } from "../../utils/config.js";
+import { alertError } from "../../utils/alertError.js";
 
 export const Result = ({ game }) => {
   const URL = `${process.env.REACT_APP_API_URL}/game/result`;
@@ -21,28 +22,19 @@ export const Result = ({ game }) => {
   });
   const [disabled, setDisabled] = useState(false);
 
-  const config = {
-    headers: {
-      Authorization: `Bearer ${user?.token}`,
-    },
-  };
   async function addResult(e) {
     e.preventDefault();
     setDisabled(true);
     try {
-      await axios.post(URL, { id: game.id, ...scores }, config);
+      await axios.post(URL, { id: game.id, ...scores }, config(user));
       setHasResult(true);
-    } catch ({ response }) {
+    } catch (error) {
       setDisabled(false);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: response?.data,
-      });
+      alertError(error);
     }
   }
 
-  function editBet() {
+  function editResult() {
     setHasResult(false);
     setDisabled(false);
   }
@@ -75,7 +67,7 @@ export const Result = ({ game }) => {
       <S.CheckBox type="submit" disabled={disabled} $hasBet={hasResult}>
         <S.CheckIcon></S.CheckIcon>
       </S.CheckBox>
-      <S.EditIcon onClick={editBet} $hasBet={hasResult}></S.EditIcon>
+      <S.EditIcon onClick={editResult} $hasBet={hasResult}></S.EditIcon>
     </S.Game>
   );
 };

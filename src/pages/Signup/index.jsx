@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Swal from "sweetalert2";
 import { Button } from "../../components/Button/index.jsx";
 import { Input } from "../../components/Input/index.jsx";
 import * as S from "../../styles/style.js";
+import { alertError } from "../../utils/alertError.js";
 
 export const SignUp = () => {
   const navigate = useNavigate();
@@ -23,13 +23,9 @@ export const SignUp = () => {
     try {
       await axios.post(URL, userSignup);
       navigate("/");
-    } catch ({ response }) {
+    } catch (error) {
       setDisabled(false);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: response.data,
-      });
+      alertError(error);
     }
   }
 

@@ -4,9 +4,9 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Button/index.jsx";
 import { Input } from "../../components/Input/index.jsx";
-import Swal from "sweetalert2";
 import * as S from "../../styles/style.js";
 import { UserContext } from "../../contexts/UserContext.jsx";
+import { alertError } from "../../utils/alertError.js";
 
 export const Signin = () => {
   const URL = `${process.env.REACT_APP_API_URL}/sign-in`;
@@ -30,13 +30,9 @@ export const Signin = () => {
         token,
       });
       localStorage.setItem("user", userSerialized);
-    } catch ({ response }) {
+    } catch (error) {
       setDisabled(false);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: response.data,
-      });
+      alertError(error);
     }
   }
 

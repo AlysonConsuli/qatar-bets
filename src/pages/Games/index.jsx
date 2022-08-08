@@ -2,8 +2,11 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { GameResult } from "../../components/GameResult/index.jsx";
+import { Loading } from "../../components/Loading/index.jsx";
 import { UserContext } from "../../contexts/UserContext.jsx";
 import * as S from "../../styles/style.js";
+import { alertError } from "../../utils/alertError.js";
+import { config } from "../../utils/config.js";
 
 export const Games = () => {
   const URL = process.env.REACT_APP_API_URL;
@@ -11,22 +14,16 @@ export const Games = () => {
 
   const [games, setGames] = useState([]);
 
-  const config = {
-    headers: {
-      Authorization: `Bearer ${user?.token}`,
-    },
-  };
   useEffect(() => {
     axios
-      .get(`${URL}/games`, config)
-      .then(({ data }) => {
-        console.log(data);
-        setGames(data.games);
-      })
-      .catch(({ response }) => {
-        console.log(response);
-      });
+      .get(`${URL}/games`, config(user))
+      .then(({ data }) => setGames(data.games))
+      .catch((error) => alertError(error));
   }, []);
+
+  if (!games?.length) {
+    return <Loading />;
+  }
 
   return (
     <S.PageContainer>

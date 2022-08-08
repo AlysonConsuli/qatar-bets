@@ -6,6 +6,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { Game } from "../../components/Game/index.jsx";
 import { Loading } from "../../components/Loading/index.jsx";
 import { alertError } from "../../utils/alertError.js";
+import { config } from "../../utils/config.js";
 
 export const AddBets = () => {
   const URL = process.env.REACT_APP_API_URL;
@@ -14,21 +15,16 @@ export const AddBets = () => {
   const [games, setGames] = useState([]);
   const [userBets, setUserBets] = useState(null);
 
-  const config = {
-    headers: {
-      Authorization: `Bearer ${user?.token}`,
-    },
-  };
   useEffect(() => {
     axios
-      .get(`${URL}/games`, config)
+      .get(`${URL}/games`, config(user))
       .then(({ data }) => setGames(data.games))
       .catch((error) => alertError(error));
   }, []);
 
   useEffect(() => {
     axios
-      .get(`${URL}/bets?groupBy=user`, config)
+      .get(`${URL}/bets?groupBy=user`, config(user))
       .then(({ data }) => setUserBets(data.bets))
       .catch((error) => alertError(error));
   }, []);
@@ -45,7 +41,7 @@ export const AddBets = () => {
     return userBet;
   }
 
-  if (!games || userBets === null) {
+  if (!games?.length || userBets === null) {
     return <Loading />;
   }
 

@@ -3,7 +3,8 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext.jsx";
 import * as S from "../../styles/style.js";
 import { GameInput } from "../GameInput/index.jsx";
-import Swal from "sweetalert2";
+import { alertError } from "../../utils/alertError.js";
+import { config } from "../../utils/config.js";
 
 export const Game = ({ obj }) => {
   let bet, game, gameId;
@@ -28,24 +29,15 @@ export const Game = ({ obj }) => {
   });
   const [disabled, setDisabled] = useState(false);
 
-  const config = {
-    headers: {
-      Authorization: `Bearer ${user?.token}`,
-    },
-  };
   async function addBet(e) {
     e.preventDefault();
     setDisabled(true);
     try {
-      await axios.post(URL, { gameId, ...scores }, config);
+      await axios.post(URL, { gameId, ...scores }, config(user));
       setHasBet(true);
-    } catch ({ response }) {
+    } catch (error) {
       setDisabled(false);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: response?.data,
-      });
+      alertError(error);
     }
   }
 
