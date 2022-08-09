@@ -19,7 +19,7 @@ export const Rules = styled.div`
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-    @media (min-width: ${({ theme }) => theme.breakPoints.laptop}) {
+    @media (min-width: 525px) {
       align-items: center;
     }
   }

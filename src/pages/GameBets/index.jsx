@@ -30,17 +30,21 @@ export const GameBets = () => {
   return (
     <S.PageContainer>
       <S.GameBets>
-        <h3>
+        <S.GameTitle>
           <span>{bets[0]?.game.team1.name}</span>
-          <span>{bets[0]?.game.score1}</span>
+          <span>
+            {bets[0]?.game.score1 !== null ? bets[0]?.game.score1 : "-"}
+          </span>
           {bets[0]?.game ? (
             <span>x</span>
           ) : (
             <p>There are no bets for this game</p>
           )}
-          <span>{bets[0]?.game.score2}</span>
+          <span>
+            {bets[0]?.game.score2 !== null ? bets[0]?.game.score2 : "-"}
+          </span>
           <span>{bets[0]?.game.team2.name}</span>
-        </h3>
+        </S.GameTitle>
         {bets?.map((bet) => (
           <Bet key={bet.id} bet={bet} />
         ))}

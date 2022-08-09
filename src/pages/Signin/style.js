@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AuthContainer = styled.main`
   background-color: ${({ theme }) => theme.colors.mainBackground};
-  height: 100vh;
+  height: 100%;
 `;
 
 export const AuthForm = styled.form`

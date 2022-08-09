@@ -15,31 +15,33 @@ export const GameBets = styled.div`
     text-align: center;
     word-break: break-word;
   }
+`;
 
-  h3 {
-    font-size: 24px;
-    color: ${({ theme }) => theme.colors.secondary};
-    margin-bottom: 5px;
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    width: 90%;
-    span:first-child {
-      width: 45%;
-      text-align: right;
-    }
-    span:last-child {
-      width: 45%;
-      text-align: left;
-    }
-    p {
-      position: absolute;
-      top: 100px;
-      left: calc(50% - 167px);
-      text-align: center;
-      @media (max-width: 350px) {
-        left: 0;
-      }
+export const GameTitle = styled.div`
+  font-size: 24px;
+  color: ${({ theme }) => theme.colors.secondary};
+  margin-bottom: 5px;
+  display: flex;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  span:first-child {
+    width: 45%;
+    text-align: right;
+  }
+  span:last-child {
+    width: 45%;
+    text-align: left;
+  }
+  p {
+    position: absolute;
+    top: 100px;
+    left: calc(50% - 167px);
+    text-align: center;
+    @media (max-width: 350px) {
+      left: 0;
     }
   }
 `;

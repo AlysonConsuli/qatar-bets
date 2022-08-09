@@ -38,7 +38,14 @@ export const ArticleContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 40px;
+  margin: 0 auto;
   margin-top: 30px;
+  width: 70%;
+  max-width: 350px;
+  @media (max-width: 350px) {
+    width: 0;
+    gap: 15px;
+  }
 `;
 
 export const Article = styled.article`
