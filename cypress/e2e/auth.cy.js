@@ -57,3 +57,39 @@ describe("sign-up page test suite", () => {
     cy.url().should("equal", `${URL}/`);
   });
 });
+
+describe("sign-up page test suite", () => {
+  it("should sign-in", () => {
+    cy.createUser(user);
+    cy.visit(`${URL}/`);
+    cy.get("#username").type(user.name);
+    cy.get("#password").type(user.password);
+
+    cy.intercept("POST", "/sign-in").as("sign-in");
+    cy.get("button").click();
+    cy.wait("@sign-in").its("response.statusCode").should("eq", 200);
+
+    cy.url().should("equal", `${URL}/homepage`);
+  });
+
+  it("given a username that doenst exist, receive 404", () => {
+    cy.visit(`${URL}/`);
+    cy.get("#username").type(user.name);
+    cy.get("#password").type(user.password);
+
+    cy.intercept("POST", "/sign-in").as("sign-in");
+    cy.get("button").click();
+    cy.wait("@sign-in").its("response.statusCode").should("eq", 404);
+  });
+
+  it("given an wrong password, receive 401", () => {
+    cy.createUser(user);
+    cy.visit(`${URL}/`);
+    cy.get("#username").type(user.name);
+    cy.get("#password").type("wrong_password");
+
+    cy.intercept("POST", "/sign-in").as("sign-in");
+    cy.get("button").click();
+    cy.wait("@sign-in").its("response.statusCode").should("eq", 401);
+  });
+});
