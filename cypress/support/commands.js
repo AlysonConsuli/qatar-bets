@@ -14,3 +14,7 @@ Cypress.Commands.add("resetAllData", () => {
     headers,
   });
 });
+
+Cypress.Commands.add("createUser", (user) => {
+  cy.request("POST", `${BACKEND_URL}/sign-up`, user);
+});
