@@ -13,10 +13,14 @@ beforeEach(() => {
 });
 
 describe("auth tests", () => {
-  it("should create a recommendation", () => {
-    cy.visit(`${URL}/`);
-    //cy.get("#name").type(user.name);
+  it("should create a user", () => {
+    cy.visit(`${URL}/sign-up`);
+    cy.get("#name").type(user.name);
+    cy.get("#password").type(user.password);
+    cy.get("#passwordConfirmation").type(user.password);
 
-    cy.url().should("equal", `${URL}/`);
+    cy.intercept("POST", "/sign-up").as("sign-up");
+    cy.get("button").click();
+    cy.wait("@sign-up").its("response.statusCode").should("eq", 201);
   });
 });
