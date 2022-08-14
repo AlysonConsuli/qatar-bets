@@ -31,4 +31,20 @@ describe("add-bets test suite", () => {
     cy.get("button").click();
     cy.wait("@postBet").its("response.statusCode").should("eq", 201);
   });
+
+  it("if the user has not paid and try add bet, receive 409", () => {
+    cy.visit(`${URL}/add-bets`);
+
+    cy.get("form")
+      .find("div:first-child")
+      .find("input")
+      .type(+faker.random.numeric(1));
+    cy.get("form")
+      .find("div:last-child")
+      .find("input")
+      .type(+faker.random.numeric(1));
+    cy.intercept("POST", "/bet").as("postBet");
+    cy.get("button").click();
+    cy.wait("@postBet").its("response.statusCode").should("eq", 401);
+  });
 });
