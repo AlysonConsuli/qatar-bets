@@ -39,3 +39,12 @@ Cypress.Commands.add("createGame", (user) => {
     headers,
   });
 });
+
+Cypress.Commands.add("postPayment", () => {
+  cy.request({
+    method: "POST",
+    url: `${BACKEND_URL}/user/payment`,
+    body: { id: 1, isPaid: true },
+    headers,
+  });
+});
