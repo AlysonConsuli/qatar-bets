@@ -5,6 +5,6 @@ export const Loading = styled.div`
   width: 100%;
   svg {
     margin: 0 auto;
-    margin-top: 50%;
+    margin-top: 28vh;
   }
 `;
