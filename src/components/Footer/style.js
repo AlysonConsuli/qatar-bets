@@ -6,7 +6,7 @@ export const Triangle = styled.div`
   border-left: calc(100vw / 12) solid transparent;
   border-right: calc(100vw / 12) solid transparent;
   border-bottom: calc(100vw / 12) solid ${({ theme }) => theme.colors.secondary};
-  @media (min-width: ${({ theme }) => theme.breakPoints.laptop}) {
+  @media (min-width: 500px) {
     border-left: calc(100vw / 24) solid transparent;
     border-right: calc(100vw / 24) solid transparent;
     border-bottom: calc(100vw / 24) solid
@@ -26,7 +26,7 @@ export const BoxTriangle = styled.div`
   div:nth-child(12) {
     display: none;
   }
-  @media (min-width: ${({ theme }) => theme.breakPoints.laptop}) {
+  @media (min-width: 500px) {
     bottom: 0;
     div:nth-child(7),
     div:nth-child(8),
@@ -37,7 +37,7 @@ export const BoxTriangle = styled.div`
       display: block;
     }
   }
-  @media (max-height: 650px) {
+  @media (max-height: 635px) {
     display: none;
   }
 `;
@@ -48,10 +48,10 @@ export const AuthFooter = styled.div`
   height: calc(100vw / 6);
   position: fixed;
   bottom: 0;
-  @media (min-width: ${({ theme }) => theme.breakPoints.laptop}) {
+  @media (min-width: 500px) {
     display: none;
   }
-  @media (max-height: 650px) {
+  @media (max-height: 635px) {
     display: none;
   }
 `;
