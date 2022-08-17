@@ -24,3 +24,8 @@ export const UserName = styled.span`
   text-overflow: ellipsis;
   word-wrap: break-word; */
 `;
+
+export const Points = styled.span`
+  font-size: 18px;
+  font-weight: 700;
+`;
