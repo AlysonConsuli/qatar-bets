@@ -16,6 +16,7 @@ export const User = styled.div`
   span {
     width: 22px;
     text-align: center;
+    font-weight: 700;
   }
   span:first-child {
     width: 39%;
