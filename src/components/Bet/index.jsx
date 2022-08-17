@@ -9,7 +9,7 @@ export const Bet = ({ bet }) => {
         <p>x</p>
         {<span>{bet.score2}</span>}
       </S.BoxInput>
-      <S.Points>{bet.points ? `${bet.points} pts` : ""}</S.Points>
+      <S.Points>{bet.points !== null ? `${bet.points} pts` : ""}</S.Points>
     </S.Bet>
   );
 };
