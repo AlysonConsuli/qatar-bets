@@ -6,6 +6,10 @@ export const Bet = ({ bet }) => {
   const { user } = useContext(UserContext);
   const myBet = user.name === bet.user.name;
 
+  if (!bet.user.isPaid) {
+    return <></>;
+  }
+
   return (
     <S.Bet myBet={myBet}>
       <S.UserName>{bet.user.name}</S.UserName>
