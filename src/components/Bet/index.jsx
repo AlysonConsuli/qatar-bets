@@ -1,8 +1,13 @@
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext.jsx";
 import * as S from "../../styles/style.js";
 
 export const Bet = ({ bet }) => {
+  const { user } = useContext(UserContext);
+  const myBet = user.name === bet.user.name;
+
   return (
-    <S.Bet>
+    <S.Bet myBet={myBet}>
       <S.UserName>{bet.user.name}</S.UserName>
       <S.BoxInput>
         {<span>{bet.score1}</span>}

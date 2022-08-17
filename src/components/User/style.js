@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const User = styled.div`
+  border: ${(props) => (props.myRanking ? "2px solid #00a000" : "")};
   background-color: ${({ theme }) => theme.colors.secondary};
   min-height: 40px;
   display: flex;
