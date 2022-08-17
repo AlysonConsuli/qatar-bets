@@ -73,7 +73,8 @@ export const EditIcon = styled(FiEdit)`
 `;
 
 export const TeamName = styled.span`
-  font-size: 16px;
+  font-family: initial;
+  font-size: 17px;
   width: 37%;
   &:nth-child(3) {
     text-align: right;

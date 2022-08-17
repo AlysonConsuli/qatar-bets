@@ -20,9 +20,23 @@ export const PagesHeader = styled.header`
     color: ${({ theme }) => theme.colors.text};
     text-align: center;
   }
+  h2 {
+    text-align: center;
+    color: ${({ theme }) => theme.colors.secondary};
+    font-weight: 700;
+  }
   svg {
     color: ${({ theme }) => theme.colors.text};
   }
+`;
+
+export const Title = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 17px;
 `;
 
 export const LogoutIcon = styled(FiLogOut)`
